@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -102,37 +103,14 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
 
 </style>
 </head>
-<audio id="bgMusic" src="myonlyone.m4a" preload="auto"></audio>
-<script>
-  const toggle = document.getElementById('soundToggle');
-  const audio = document.getElementById('bgMusic');
-  let isPlaying = false;
-
-  toggle.addEventListener('click', () => {
-    if (!isPlaying) {
-      audio.play();
-      toggle.textContent = '🔇 Silenciar';
-      isPlaying = true;
-    } else {
-      audio.pause();
-      audio.currentTime = 0;
-      toggle.textContent = '🔈 Activar sonido';
-      isPlaying = false;
-    }
-  });
-</script>
 <body>
   <header class="header" role="banner">
     <img src="images_map_preview.jpg" alt="map background" class="map-bg" />
     <div class="hero" role="main">
-<div class="passport-photo">
-  <img src="Boda1.jpg" alt="Foto principal" style="width:100%; height:400px; object-fit:cover; opacity:.95;" />
-  <p style="margin-top: 12px; font-weight: bold; text-align: center;">🎵 Nuestra canción</p>
-  <audio controls style="margin-top: 8px; width: 100%;">
-    <source src="myonlyone.m4a" type="audio/mp4">
-    Tu navegador no soporta audio HTML5.
-  </audio>
-</div>
+      <div class="passport-photo">
+        <img src="Boda1.jpg" alt="map illustration" style="width:100%; height:400px; object-fit:cover; opacity:.95;" />
+      </div>
+      <div>
         <div class="logo-line">
           <img src="Brujula.png" alt="Brújula" class="compass" />
           <div>
@@ -220,15 +198,3 @@ if(toggle){
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
