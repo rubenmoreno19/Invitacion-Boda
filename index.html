@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 :root{
+  --bg:#f6f1ec;
   --accent:#b78a6b;
   --accent-dark:#8b5a3f;
   --text:#3b3029;
@@ -15,7 +16,7 @@
   --shadow: 0 10px 30px rgba(0,0,0,.08);
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--text); background:var(--bg); -webkit-font-smoothing:antialiased;}
+body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--text); -webkit-font-smoothing:antialiased;}
 .header{
   min-height:60vh;
   display:flex;
@@ -24,10 +25,6 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
   padding:40px 20px;
   position:relative;
   overflow:hidden;
-}
-.map-bg{
-  position:absolute; inset:0; width:120%; height:120%; object-fit:cover; opacity:.22; filter:blur(0px) saturate(.9);
-  transform:scale(1.05);
 }
 .hero{
   position:relative; z-index:2;
@@ -201,6 +198,7 @@ if(toggle){
 
 </body>
 </html>
+
 
 
 
