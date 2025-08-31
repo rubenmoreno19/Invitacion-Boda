@@ -205,7 +205,7 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
       <div class="card">
         <h3 style="margin-top:0; font-family:'Playfair Display', serif;">Mapa del viaje</h3>
         <div class="map-illustration" style="display: flex; gap: 10px;">
-		  <img src="mapa.png" alt="map illustration" style="width:100%; height:60%; object-fit:cover; opacity:.95" />
+		  <img src="mapa.png" alt="map illustration" style="width:100%; height:220px; object-fit:cover; opacity:.95" />
         </div>
       </div>
     </section>
@@ -214,19 +214,9 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
 
   <div class="footer">Hecho con ❤ — Personaliza nombres, fechas y enlaces en el archivo <code>index.html</code></div>
 
-<script>
-const video = document.querySelector('video');
-const toggle = document.getElementById('soundToggle');
-if(toggle){
-  toggle.addEventListener('click', ()=>{
-    if(video.muted){ video.muted=false; video.play(); toggle.textContent='🔇 Silenciar'; }
-    else { video.muted=true; toggle.textContent='🔈 Activar sonido'; }
-  });
-}
-</script>
-
 </body>
 </html>
+
 
 
 
