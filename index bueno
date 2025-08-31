@@ -1,0 +1,200 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Invitación - Pasaporte</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#b78a6b;
+  --accent-dark:#8b5a3f;
+  --text:#3b3029;
+  --card:#ffffff;
+  --radius:12px;
+  --shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--text); -webkit-font-smoothing:antialiased;}
+.header{
+  min-height:60vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
+  position:relative;
+  overflow:hidden;
+}
+.map-bg{
+  position:absolute; inset:0; width:120%; height:120%; object-fit:cover; opacity:.22; filter:blur(0px) saturate(.9);
+  transform:scale(1.05);
+  display: none !important;
+}
+.hero{
+  position:relative; z-index:2;
+  max-width:980px; width:100%; background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.82));
+  border-radius:18px; padding:24px; box-shadow:var(--shadow); border:1px solid rgba(0,0,0,0.04);
+  display:grid; grid-template-columns: 1fr; gap:20px; align-items:center;
+}
+@media(min-width:900px){ .hero{ grid-template-columns:360px 1fr; } }
+.passport-photo{
+  width:100%; border-radius:10px; overflow:hidden; background:linear-gradient(180deg,#fff,#faf6f2);
+  display:flex; align-items:center; justify-content:center; padding:10px;
+  border:1px solid rgba(0,0,0,0.04);
+}
+.photo-placeholder{ width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:14px; color:rgba(0,0,0,0.45); padding:12px; }
+.title{
+  font-family:'Playfair Display', serif; font-size:34px; margin:0 0 6px; color:var(--accent-dark);
+}
+.subtitle{ font-family:'Playfair Display', serif; color:var(--accent); margin:0 0 6px; font-size:18px; }
+.lead{ margin:0 0 12px; color:rgba(0,0,0,0.6); }
+.controls{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:8px; }
+.btn{ display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; text-decoration:none; border:1px solid rgba(0,0,0,0.06); background:var(--card); color:var(--text); font-weight:600; }
+.btn.primary{ background:var(--accent); color:#fff; border-color:transparent; }
+.small{ font-size:13px; color:rgba(0,0,0,0.6); }
+.section{ max-width:980px; margin:28px auto; padding:0 20px; }
+.card{ background:var(--card); border-radius:12px; padding:18px; box-shadow:var(--shadow); border:1px solid rgba(0,0,0,0.04); }
+.boarding{ display:flex; flex-direction:column; gap:12px; }
+.ticket{ flex:1; padding:16px; border-radius:10px; border:1px dashed rgba(0,0,0,0.06); background:linear-gradient(180deg,#fff,#fbf8f6); }
+.ticket .row{ display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.ticket h3{ margin:0; font-family:'Playfair Display', serif; font-size:18px; color:var(--accent-dark); }
+.meta{ font-size:13px; color:rgba(0,0,0,0.7); }
+.map-illustration{ width:100%; height:220px; border-radius:10px; overflow:hidden; }
+.footer{ text-align:center; padding:28px; color:rgba(0,0,0,0.6); font-size:14px; }
+.compass {
+  width: 76px;
+  height: 76px;
+  display: block;
+  margin: auto;
+  opacity: .95;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.logo-line{ display:flex; gap:12px; align-items:center; font-size:13px; color:var(--accent-dark); }
+.hero video { width:100%; height:auto; border-radius:8px; display:block; object-fit:cover; }
+.bg-video-small{ width:100%; border-radius:8px; filter:blur(8px) saturate(.95); opacity:.35; }
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr !important;
+    padding: 20px;
+  }
+  .passport-photo img {
+    height: 250px !important;
+  }
+  .map-illustration {
+    height: 180px !important;
+    flex-direction: column !important;
+  }
+  .map-illustration img {
+    width: 100% !important;
+    height: 150px !important;
+  }
+  .logo-line {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+  .logo-line div {
+    width: 100%;
+  }
+}
+
+</style>
+</head>
+<body>
+  <header class="header" role="banner">
+    <img src="images_map_preview.jpg" alt="map background" class="map-bg" />
+    <div class="hero" role="main">
+      <div class="passport-photo">
+        <img src="Boda1.jpg" alt="map illustration" style="width:100%; height:400px; object-fit:cover; opacity:.95;" />
+      </div>
+      <div>
+        <div class="logo-line">
+          <img src="Brujula.png" alt="Brújula" class="compass" />
+          <div>
+            <div style="font-size:12px;color:var(--accent);">PASAPORTE</div>
+            <div style="font-weight:700;color:var(--accent-dark);font-family:'Playfair Display',serif;font-size:16px">INVITACIÓN</div>
+          </div>
+        </div>
+        <h1 class="title">Rubén &amp; Natasha</h1>
+        <div class="subtitle">22 · 07 · 2026</div>
+        <p class="lead">¡Nos encantaría que nos acompañes a celebrar nuestro gran día! Pulsa en entrar para ver la invitación completa.</p>
+        <div class="controls">
+          <a class="btn primary" href="#invite">Entrar a la invitación</a>
+          <a class="btn" id="soundToggle">🔈 Activar sonido</a>
+          <a class="btn" href="boda.ics" download>📅 Añadir al calendario</a>
+        </div>
+        <p class="small" style="margin-top:8px">Formato inspirado en pasaporte / boarding pass. Sustituye textos e imágenes por los tuyos.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="invite" class="section">
+      <div class="card">
+        <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
+          <div style="flex:1; min-width:220px;">
+            <h3 style="margin:0; font-family:'Playfair Display', serif;">Detalles</h3>
+            <p class="meta" style="margin-top:6px;"><strong>Ceremonia:</strong> Parroquia de San Martín · 12:30<br><strong>Banquete:</strong> Finca Las Encinas · 14:30</p>
+          </div>
+          <div style="flex:1; min-width:220px;">
+            <h3 style="margin:0; font-family:'Playfair Display', serif;">RSVP</h3>
+            <p class="meta" style="margin-top:6px;">Por favor confirma tu asistencia y alergias en el formulario.</p>
+            <a class="btn" href="https://forms.gle/" target="_blank">Abrir formulario</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<section class="section">
+  <!-- Primera tarjeta -->
+  <div class="card">
+    <div class="ticket">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h3>BOARDING PASS</h3>
+        <div class="meta">RN • 22/07/2026</div>
+      </div>
+      <hr style="border:none;border-top:1px dashed rgba(0,0,0,0.06);margin:12px 0"/>
+      <div class="row">
+        <div><strong>Ubicación</strong><div class="meta">San Petersburgo (Rusia)</div></div>
+        <div style="text-align:right;"><strong>Fecha y Hora</strong><div class="meta">22/07/2026 16:00</div></div>
+      </div>
+      <div style="height:8px"></div>
+      <div class="row">
+        <div><strong>Destino</strong><div class="meta">Royal Beach (San Petersburgo, Rusia)</div></div>
+        <div style="text-align:right;"><strong>Puerta</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Segunda tarjeta -->
+  <div class="card">
+    <div class="ticket">
+      <h3 style="margin-top:0">Información</h3>
+      <p class="meta">Trae tu sonrisa y ropa formal de día. Si necesitas alojamiento, contacta con nosotros.</p>
+      <hr style="border:none;border-top:1px dashed rgba(0,0,0,0.06);margin:12px 0"/>
+      <p class="meta"><strong>Regalos:</strong> IBAN ES00 0000 0000 0000000000</p>
+    </div>
+  </div>
+</section>
+	  
+  </main>
+
+  <div class="footer">Hecho con ❤ — Personaliza nombres, fechas y enlaces en el archivo <code>index.html</code></div>
+
+<script>
+const video = document.querySelector('video');
+const toggle = document.getElementById('soundToggle');
+if(toggle){
+  toggle.addEventListener('click', ()=>{
+    if(video.muted){ video.muted=false; video.play(); toggle.textContent='🔇 Silenciar'; }
+    else { video.muted=true; toggle.textContent='🔈 Activar sonido'; }
+  });
+}
+</script>
+
+</body>
+</html>
