@@ -103,6 +103,27 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
 
 </style>
 </head>
+<audio id="bgMusic" src="myonlyone.m4a" preload="auto"></audio>
+<script>
+  const audio = document.getElementById('bgMusic');
+  const toggle = document.getElementById('soundToggle');
+
+  if (toggle && audio) {
+    let isPlaying = false;
+
+    toggle.addEventListener('click', () => {
+      if (!isPlaying) {
+        audio.play();
+        toggle.textContent = '🔇 Silenciar';
+        isPlaying = true;
+      } else {
+        audio.pause();
+        toggle.textContent = '🔈 Activar sonido';
+        isPlaying = false;
+      }
+    });
+  }
+</script>
 <body>
   <header class="header" role="banner">
     <img src="images_map_preview.jpg" alt="map background" class="map-bg" />
@@ -184,7 +205,7 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
       <div class="card">
         <h3 style="margin-top:0; font-family:'Playfair Display', serif;">Mapa del viaje</h3>
         <div class="map-illustration" style="display: flex; gap: 10px;">
-		  <img src="mapa.png" alt="map illustration" style="width:100%; height:100%; object-fit:cover; opacity:.95" />
+		  <img src="mapa.png" alt="map illustration" style="width:100%; height:60%; object-fit:cover; opacity:.95" />
         </div>
       </div>
     </section>
@@ -206,5 +227,6 @@ if(toggle){
 
 </body>
 </html>
+
 
 
