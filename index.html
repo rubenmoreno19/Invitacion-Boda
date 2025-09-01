@@ -252,12 +252,12 @@ playPause.addEventListener('click', () => {
   if (!isPlaying) {
     audio.play();
     playPause.textContent = '⏸️';
-    playPause.style.backgroundColor = '#8b5a3f'; // Cambiar color al reproducir
+    playPause.style.color = '#8b5a3f'; // Cambiar color al reproducir
     isPlaying = true;
   } else {
     audio.pause();
     playPause.textContent = '▶️';
-    playPause.style.backgroundColor = '#b78a6b'; // Volver al color original o el que quieras
+    playPause.style.color = '#b78a6b'; // Volver al color original o el que quieras
     isPlaying = false;
   }
 });
@@ -280,6 +280,7 @@ playPause.addEventListener('click', () => {
   </script>
 </body>
 </html>
+
 
 
 
