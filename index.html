@@ -102,27 +102,6 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
 
 </style>
 </head>
-<audio id="bgMusic" src="myonlyone.m4a" preload="auto"></audio>
-<script>
-  const audio = document.getElementById('bgMusic');
-  const toggle = document.getElementById('soundToggle');
-
-  if (toggle && audio) {
-    let isPlaying = false;
-
-    toggle.addEventListener('click', () => {
-      if (!isPlaying) {
-        audio.play();
-        toggle.textContent = '🔇 Silenciar';
-        isPlaying = true;
-      } else {
-        audio.pause();
-        toggle.textContent = '🔈 Activar sonido';
-        isPlaying = false;
-      }
-    });
-  }
-</script>
 <body>
   <header class="header" role="banner">
     <img src="images_map_preview.jpg" alt="map background" class="map-bg" />
@@ -212,9 +191,30 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
   </main>
 
   <div class="footer">Hecho con ❤ — Personaliza nombres, fechas y enlaces en el archivo <code>index.html</code></div>
+<audio id="bgMusic" src="myonlyone.m4a" preload="auto"></audio>
+<script>
+  const audio = document.getElementById('bgMusic');
+  const toggle = document.getElementById('soundToggle');
 
+  if (toggle && audio) {
+    let isPlaying = false;
+
+    toggle.addEventListener('click', () => {
+      if (!isPlaying) {
+        audio.play();
+        toggle.textContent = '🔇 Silenciar';
+        isPlaying = true;
+      } else {
+        audio.pause();
+        toggle.textContent = '🔈 Activar sonido';
+        isPlaying = false;
+      }
+    });
+  }
+</script>
 </body>
 </html>
+
 
 
 
