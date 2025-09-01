@@ -150,6 +150,11 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
       <div class="passport-photo">
         <img src="Boda1.webp" alt="Foto de Rubén y Natasha en la invitación" style="width:100%; height:400px; object-fit:cover; opacity:.95;" />
       </div>
+      <div class="music-player">
+      <button id="playPause">▶️</button>
+      <input type="range" id="progress" value="0" min="0" max="100">
+      <span id="time">0:00</span>
+      <audio id="bgMusic" src="myonlyone.mp3" preload="auto"></audio>
       <div>
         <div class="logo-line">
           <img src="Brujula.webp" alt="Brújula decorativa girando" class="compass" />
@@ -233,13 +238,9 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
   </main>
 
   <div class="footer">Hecho con ❤ — Personaliza nombres, fechas y enlaces en el archivo <code>index.html</code></div>
-  <div class="music-player">
-  <button id="playPause">▶️</button>
-  <input type="range" id="progress" value="0" min="0" max="100">
-  <span id="time">0:00</span>
+
 </div>
-<audio id="bgMusic" src="myonlyone.mp3" preload="auto"></audio>
-  <audio id="bgMusic" src="myonlyone.mp3" preload="auto"></audio>
+
   <script>
     const audio = document.getElementById('bgMusic');
     const playPause = document.getElementById('playPause');
@@ -278,6 +279,7 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
   </script>
 </body>
 </html>
+
 
 
 
