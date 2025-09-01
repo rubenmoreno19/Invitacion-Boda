@@ -248,21 +248,17 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
 
     let isPlaying = false;
 
-const accentDark = getComputedStyle(document.documentElement).getPropertyValue('--accent-dark').trim();
-
-playPause.addEventListener('click', () => {
-  if (!isPlaying) {
-    audio.play();
-    playPause.textContent = '⏸️';
-    playPause.style.color = accentDark;  // Cambiar color del texto del botón
-    isPlaying = true;
-  } else {
-    audio.pause();
-    playPause.textContent = '▶️';
-    playPause.style.color = '';  // Quitar el estilo para que vuelva al CSS original
-    isPlaying = false;
-  }
-});
+    playPause.addEventListener('click', () => {
+      if (!isPlaying) {
+        audio.play();
+        playPause.textContent = '⏸️';
+        isPlaying = true;
+      } else {
+        audio.pause();
+        playPause.textContent = '▶️';
+        isPlaying = false;
+      }
+    });
 
 
   audio.addEventListener('timeupdate', () => {
@@ -283,6 +279,7 @@ playPause.addEventListener('click', () => {
   </script>
 </body>
 </html>
+
 
 
 
