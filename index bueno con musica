@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -101,16 +102,60 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
     width: 100%;
   }
 }
+.music-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 8px 12px;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  margin-top: 10px;
+}
+
+.music-player button {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.music-player input[type="range"] {
+  flex: 1;
+  appearance: none;
+  height: 4px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.music-player input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+}
+  
 </style>
 </head>
 <body>
   <header class="header" role="banner">
-    <img src="images_map_preview.webp" alt="Mapa decorativo de fondo" class="map-bg" />
     <div class="hero" role="main">
       <div class="passport-photo">
         <img src="Boda1.webp" alt="Foto de Rubén y Natasha en la invitación" style="width:100%; height:400px; object-fit:cover; opacity:.95;" />
       </div>
-      <div>
+      <div class="music-player">
+      <button id="playPause">▶️</button>
+      <input type="range" id="progress" value="0" min="0" max="100">
+      <span id="time">0:00</span>
+      <audio id="bgMusic" src="myonlyone.mp3" preload="auto"></audio>
+      </div>
         <div class="logo-line">
           <img src="Brujula.webp" alt="Brújula decorativa girando" class="compass" />
           <div>
@@ -123,7 +168,6 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
         <p class="lead">¡Nos encantaría que nos acompañes a celebrar nuestro gran día! Pulsa en entrar para ver la invitación completa.</p>
         <div class="controls">
           <a class="btn primary" href="#invite">Entrar a la invitación</a>
-          <a class="btn" id="soundToggle">🔈 Activar sonido</a>
           <a class="btn" href="boda.ics" download>📅 Añadir al calendario</a>
         </div>
         <p class="small" style="margin-top:8px">Formato inspirado en pasaporte / boarding pass. Sustituye textos e imágenes por los tuyos.</p>
@@ -138,8 +182,8 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
           <div style="flex:1; min-width:220px;">
             <h3 style="margin:0; font-family:'Playfair Display', serif;">Detalles</h3>
             <p class="meta" style="margin-top:6px;">
-              <strong>Ceremonia:</strong> Parroquia de San Martín · 12:30<br>
-              <strong>Banquete:</strong> Finca Las Encinas · 14:30
+              <strong>La ceremonia dará comienzo a las 17.00</strong><br>
+              <strong>El banquete dará comienzo a las 18.30</strong>
             </p>
           </div>
           <div style="flex:1; min-width:220px;">
@@ -195,25 +239,44 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
 
   <div class="footer">Hecho con ❤ — Personaliza nombres, fechas y enlaces en el archivo <code>index.html</code></div>
 
-  <audio id="bgMusic" src="myonlyone.mp3" preload="auto"></audio>
+</div>
+
   <script>
     const audio = document.getElementById('bgMusic');
-    const toggle = document.getElementById('soundToggle');
+    const playPause = document.getElementById('playPause');
+    const progress = document.getElementById('progress');
+    const time = document.getElementById('time');
 
-    if (toggle && audio) {
-      let isPlaying = false;
-      toggle.addEventListener('click', () => {
-        if (!isPlaying) {
-          audio.play();
-          toggle.textContent = '🔇 Silenciar';
-          isPlaying = true;
-        } else {
-          audio.pause();
-          toggle.textContent = '🔈 Activar sonido';
-          isPlaying = false;
-        }
-      });
-    }
+    let isPlaying = false;
+
+    playPause.addEventListener('click', () => {
+      if (!isPlaying) {
+        audio.play();
+        playPause.textContent = '⏸️';
+        isPlaying = true;
+      } else {
+        audio.pause();
+        playPause.textContent = '▶️';
+        isPlaying = false;
+      }
+    });
+
+
+  audio.addEventListener('timeupdate', () => {
+    const percent = (audio.currentTime / audio.duration) * 100;
+    progress.value = percent;
+
+    // actualizar tiempo
+    let minutes = Math.floor(audio.currentTime / 60);
+    let seconds = Math.floor(audio.currentTime % 60);
+    if (seconds < 10) seconds = "0" + seconds;
+    time.textContent = `${minutes}:${seconds}`;
+  });
+
+  progress.addEventListener('input', () => {
+    const newTime = (progress.value / 100) * audio.duration;
+    audio.currentTime = newTime;
+  });
   </script>
 </body>
 </html>
