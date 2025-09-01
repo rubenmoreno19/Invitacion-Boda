@@ -57,7 +57,7 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
 .card{ background:var(--card); border-radius:12px; padding:18px; box-shadow:var(--shadow); border:1px solid rgba(0,0,0,0.04); }
 .boarding{ display:flex; flex-direction:column; gap:12px; }
 .ticket{ flex:1; padding:16px; border-radius:10px; border:1px dashed rgba(0,0,0,0.06); background:linear-gradient(180deg,#fff,#fbf8f6); }
-.ticket .row{ display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.ticket .row{ display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap: wrap; }
 .ticket h3{ margin:0; font-family:'Playfair Display', serif; font-size:18px; color:var(--accent-dark); }
 .meta{ font-size:13px; color:rgba(0,0,0,0.7); }
 .map-illustration{ width:100%; height:220px; border-radius:10px; overflow:hidden; }
@@ -88,8 +88,7 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
     flex-direction: column !important;
   }
   .map-illustration img {
-    width: 100% !important;
-    height: 150px !important;
+    height: 220px !important;
   }
   .logo-line {
     flex-direction: column;
@@ -180,21 +179,38 @@ body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Hel
     </div>
   </div>
 </section>
+<section class="section">
+      <div class="card">
+        <h3 style="margin-top:0; font-family:'Playfair Display', serif;">Mapa del viaje</h3>
+        <div class="map-illustration" style="display: flex; gap: 10px;">
+		  <img src="mapa.png" alt="map illustration" style="height:220px; object-fit:contain; opacity:.95" />
+        </div>
+      </div>
+    </section>
 	  
   </main>
 
   <div class="footer">Hecho con ❤ — Personaliza nombres, fechas y enlaces en el archivo <code>index.html</code></div>
-
+<audio id="bgMusic" src="myonlyone.mp3" preload="auto"></audio>
 <script>
-const video = document.querySelector('video');
-const toggle = document.getElementById('soundToggle');
-if(toggle){
-  toggle.addEventListener('click', ()=>{
-    if(video.muted){ video.muted=false; video.play(); toggle.textContent='🔇 Silenciar'; }
-    else { video.muted=true; toggle.textContent='🔈 Activar sonido'; }
-  });
-}
-</script>
+  const audio = document.getElementById('bgMusic');
+  const toggle = document.getElementById('soundToggle');
 
+  if (toggle && audio) {
+    let isPlaying = false;
+
+    toggle.addEventListener('click', () => {
+      if (!isPlaying) {
+        audio.play();
+        toggle.textContent = '🔇 Silenciar';
+        isPlaying = true;
+      } else {
+        audio.pause();
+        toggle.textContent = '🔈 Activar sonido';
+        isPlaying = false;
+      }
+    });
+  }
+</script>
 </body>
 </html>
